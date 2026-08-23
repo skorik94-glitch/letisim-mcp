@@ -1,0 +1,57 @@
+{
+  "name": "@letisim/retail-mcp",
+  "version": "0.1.0",
+  "mcpName": "com.letisim/retail",
+  "description": "Letisim travel eSIM MCP server: search plans, quote exact prices and hand off to a first-party checkout. It never asks for card data, email or activation secrets.",
+  "keywords": [
+    "letisim",
+    "esim",
+    "travel",
+    "mcp",
+    "modelcontextprotocol",
+    "roaming",
+    "connectivity"
+  ],
+  "homepage": "https://letisim.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skorik94-glitch/letisim-mcp.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "letisim-retail-mcp": "dist/stdio.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "server.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start:http": "node dist/http.js",
+    "start:stdio": "node dist/stdio.js",
+    "test": "vitest run test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/fastify": "^2.0.0",
+    "@modelcontextprotocol/node": "^2.0.0",
+    "@modelcontextprotocol/server": "^2.0.0",
+    "fastify": "^5.12.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "^2.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/skorik94-glitch/letisim-mcp/issues"
+  }
+}

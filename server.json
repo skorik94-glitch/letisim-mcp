@@ -1,0 +1,37 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.letisim/retail",
+  "description": "Travel eSIM for 100+ countries: search plans for a destination, get the exact current price and hand off to a first-party Letisim checkout. The server never asks for card data, email or activation secrets.",
+  "version": "0.1.0",
+  "websiteUrl": "https://letisim.com",
+  "repository": {
+    "url": "https://github.com/skorik94-glitch/letisim-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@letisim/retail-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "LETISIM_MCP_ATTRIBUTION",
+          "description": "Partner handle of this installation, promo:CODE or ref:slug, issued in the Letisim affiliate cabinet. Purchases started by this installation are credited to that partner. Leave unset for an unattributed installation.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string"
+        },
+        {
+          "name": "LETISIM_API_BASE_URL",
+          "description": "Override the Letisim API origin. Only needed for local development against a test API.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}

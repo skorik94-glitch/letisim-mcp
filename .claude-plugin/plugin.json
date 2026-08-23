@@ -1,0 +1,11 @@
+{
+  "name": "letisim",
+  "description": "Letisim travel eSIM MCP server: search plans, quote exact prices and hand off to a first-party checkout. It never asks for card data, email or activation secrets.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Letisim",
+    "url": "https://letisim.com"
+  },
+  "homepage": "https://letisim.com",
+  "license": "MIT"
+}

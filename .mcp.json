@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "letisim": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/dist/stdio.js"
+      ],
+      "env": {
+        "LETISIM_MCP_ATTRIBUTION": "${LETISIM_MCP_ATTRIBUTION:-}"
+      }
+    }
+  }
+}

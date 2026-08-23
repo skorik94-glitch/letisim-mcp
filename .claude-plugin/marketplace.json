@@ -1,0 +1,34 @@
+{
+  "name": "letisim",
+  "owner": {
+    "name": "Letisim",
+    "url": "https://letisim.com"
+  },
+  "metadata": {
+    "description": "Travel eSIM for 100+ countries, straight from your assistant.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "letisim",
+      "source": "./",
+      "description": "Letisim travel eSIM MCP server: search plans, quote exact prices and hand off to a first-party checkout. It never asks for card data, email or activation secrets.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Letisim",
+        "url": "https://letisim.com"
+      },
+      "homepage": "https://letisim.com",
+      "license": "MIT",
+      "keywords": [
+        "letisim",
+        "esim",
+        "travel",
+        "mcp",
+        "modelcontextprotocol",
+        "roaming",
+        "connectivity"
+      ]
+    }
+  ]
+}
