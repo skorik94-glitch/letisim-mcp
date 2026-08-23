@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { retailMcpFactory } from "../src/server.js";
 
@@ -11,6 +11,13 @@ import { retailMcpFactory } from "../src/server.js";
 const packageDir = join(import.meta.dirname, "..");
 const pkg = JSON.parse(readFileSync(join(packageDir, "package.json"), "utf8"));
 const server = JSON.parse(readFileSync(join(packageDir, "server.json"), "utf8"));
+
+/**
+ * Этот же файл едет в сгенерированное публичное зеркало и должен там проходить: клон — первое,
+ * что запустит любой, кто пришёл из листинга. Отличается ровно один инвариант — `private`, —
+ * поэтому зеркало определяется по отсутствию корня монорепозитория, а не по флагу в самом пакете.
+ */
+const isGeneratedMirror = !existsSync(join(packageDir, "..", "..", "tsconfig.base.json"));
 
 describe("MCP registry metadata", () => {
   it("имя в реестре совпадает с маркером владения пакетом", () => {
@@ -45,9 +52,12 @@ describe("MCP registry metadata", () => {
     expect(pkg.repository.url).not.toMatch(/letisim\.git$/);
   });
 
-  it("остаётся приватным, пока гейты RETAIL-MCP-001 не закрыты", () => {
-    // Флип этого поля — осознанное действие владельца, а не побочный эффект правки метаданных.
-    expect(pkg.private).toBe(true);
+  it("рабочая копия остаётся приватной, зеркало — публикуемым", () => {
+    // В монорепозитории `private` защищает от случайного `npm publish -w` из корня; флип —
+    // осознанное действие владельца, а не побочный эффект правки метаданных. В зеркале то же
+    // поле обязано отсутствовать, иначе публикация молча не состоится.
+    if (isGeneratedMirror) expect(pkg.private).toBeUndefined();
+    else expect(pkg.private).toBe(true);
   });
 });
 

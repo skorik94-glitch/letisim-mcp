@@ -49,7 +49,9 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@modelcontextprotocol/client": "^2.0.0"
+    "@modelcontextprotocol/client": "^2.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^4.1.10"
   },
   "bugs": {
     "url": "https://github.com/skorik94-glitch/letisim-mcp/issues"
